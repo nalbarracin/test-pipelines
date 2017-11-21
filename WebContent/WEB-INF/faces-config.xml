@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config version="2.0" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
+	
+	<lifecycle>
+		<phase-listener>main.leacy.client.control.RequestInterceptor</phase-listener>
+	</lifecycle>
+	
+	<managed-bean>
+		<managed-bean-name>loginBean</managed-bean-name>
+		<managed-bean-class>main.leacy.client.bean.LoginBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean> 
+	<navigation-rule>
+		<navigation-case>
+			<from-outcome>stock</from-outcome>
+			<to-view-id>/stock.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>	
+		<navigation-case>
+			<from-outcome>stock_edicion</from-outcome>
+			<to-view-id>/stock_edicion.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>		
+	</navigation-rule>
+	<factory>
+		<exception-handler-factory>main.leacy.client.exception.handler.CustomExceptionHandlerFactory</exception-handler-factory>
+	</factory>
+</faces-config>

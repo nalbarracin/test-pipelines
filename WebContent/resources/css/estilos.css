@@ -1,0 +1,313 @@
+body {
+    background: #f4f4f4 !important;
+}
+
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 200px auto;
+  background: #fff;
+  box-shadow: 1px 2px 7px #9a9a9a;
+}
+
+.label-ediciones{
+    margin-bottom: 0;
+    font-family: Keyrune;
+    font-size: 20px;
+    /* width: 17px; */
+    margin-left: 6px;
+    margin-right: 6px;
+}
+
+td.columna-symbol{
+	font-family: Keyrune;
+    font-size: 20px;
+    width: 30px;
+    text-align: center;
+    margin-bottom: 0px !important;
+}
+
+.columna-symbol{
+	font-family: Keyrune;
+    font-size: 20px;
+    width: 30px;
+    text-align: center;
+    margin-bottom: 0px !important;
+}
+
+div.ui-panel .ui-panel-content{
+	padding: 5px 10px;
+}
+
+.blockUI.blockMsg.blockPage.pe-blockui {
+    z-index: 9999 !important;
+}
+
+h2.form-signin-heading {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.ui-dialog.ui-widget-content .ui-dialog-titlebar-close {
+    margin-top: 28px !IMPORTANT;
+    text-decoration: none !important;
+}
+
+div.ui-growl {
+    padding: 0 0 0 0;
+    min-width: 120px;
+    max-width: 350px;
+    position: fixed;
+    opacity: .95;
+    font-size: 1.2em;
+    font-weight: 500;
+    z-index: 9999 !important;
+    width: max-content !important;
+    left: inherit !important;
+}
+
+.nombreMaquina input{
+	width: 89%;
+}
+
+button.ui-button.ui-widget.ui-state-default.ui-corner-right.ui-button-icon-only {
+    height: 34px;
+    margin-bottom: 4px;
+}
+
+.ui-selectonemenu-trigger.ui-state-default.ui-corner-right {
+    padding-left: 10px;
+    padding-top: 8px;
+}
+
+div.ui-dialog .ui-dialog-content {
+    padding: 0 !important;    
+}
+
+.form-group > input, .form-group .ui-selectonemenu{
+    width: 100% !important;
+}
+
+ .form-group .ui-autocomplete > input{
+ 	 width: 91.5% !important;
+ }
+ 
+ .ui-menuitem-link.ui-corner-all.link-out {
+    background: #BDBDBD;
+    border-radius: 0px;
+ }
+
+.ui-menu {
+   padding: 0px !important;
+   position: relative;
+   outline: 0 none;
+   background: #ddd;
+   display: inline-block;
+   margin: 0 15px;
+   border: 0px;
+}
+
+.menubar-row{
+	background: #ddd;
+	margin-bottom: 12px;
+	height: 48px;
+	
+}
+
+.ui-menu .ui-menuitem {
+	padding: 0px !important;
+}
+
+.ui-menu .ui-menu-list .ui-menuitem {
+    border: none;
+    margin: 0px !important;
+}
+
+.ui-menubar .ui-menuitem-link {
+    width: auto;
+    margin: 0px;
+    padding: 15px;
+}
+
+li.ui-menuitem>a.ui-menuitem-link {
+    margin-left: 0px;
+}
+
+a.ui-menuitem-link.ui-corner-all {
+    transition: .3s ease;
+}
+
+
+a.ui-menuitem-link.ui-corner-all.active{
+	background: grey;
+    color: #fff;
+    border-radius: 0px;
+}
+
+a.ui-menuitem-link.ui-corner-all:hover {
+    background: grey;
+    color: #fff;
+    border-radius: 0px;
+}
+
+a.ui-menuitem-link.ui-corner-all:focus {
+    background: grey;
+    color: #fff;
+    border-radius: 0px;
+}
+
+
+.botonera {
+    padding: 10px;
+    margin: 10px 10px;
+    text-align: right;
+    background: #fff;
+    border-top: 1px solid #eee;
+    box-shadow: 1px 1px 5px grey;
+}
+
+.btn {
+    margin-right: 10px;
+}
+
+
+.ui-datatable tbody td {
+    border: 1px solid grey;
+}
+
+table{
+	margin-bottom: 10px;
+}
+
+.ui-datatable .ui-column-filter {
+    display: inline-block;
+    width: 150px;
+    margin: auto;
+    margin-left: 15px;
+}
+
+.ui-dialog.ui-widget-content {
+    border: none;
+    border-radius: 3px;
+    position: absolute !important;
+}
+
+body .ui-datatable th[role="columnheader"].ui-state-default {
+    background: #fff none;
+    border: none;
+    box-shadow: none !important;
+    outline: 0 !important;
+    position: relative;
+    font-weight: 600;
+    border-radius: 0;
+    padding: 5px;
+    background: #337ab7 !important;
+    color: #fff;
+}
+
+body .ui-datatable td[role="gridcell"]{
+	padding: 1px 1px;
+}
+
+
+body .ui-datatable td[role="gridcell"] a {
+	position: absolute !important;
+}
+
+
+
+body .ui-spinner a.ui-spinner-button span.ui-icon-triangle-1-n:before {
+    font-family: FontAwesome;
+    color: #444;
+    position: relative;
+    font-size: 13.3px;
+    top: -3px;
+    left: -13px !important;
+    overflow: hidden;
+    content: "\f077" !important;
+}
+
+.labelTabla{
+	padding-left: 5px;
+    margin-bottom: 0px;
+    vertical-align: -webkit-baseline-middle
+}
+
+
+.labelFiltro{
+	padding-left: 15px;
+    margin-bottom: 0px;
+    vertical-align: -webkit-baseline-middle
+}
+
+.labelCheckbox{
+	padding-left: 15px;
+	padding-right: 2px;    
+}
+
+.ui-spinner{
+	float: right;
+}
+
+body .ui-spinner a.ui-spinner-button span.ui-icon-triangle-1-s:before {
+    font-family: FontAwesome;
+    color: #444;
+    position: relative;
+    font-size: 13.3px;
+    top: -7px;
+    left: -13px;
+    overflow: hidden;
+    content: "\f078" !important;
+}
+
+.spinnerTabla input{
+	width: 40px;
+	height: 28px;
+}
+
+td button.btn.addtime{
+    padding: 2px 12px !important;
+}
+
+body .ui-datatable.tablaModalOjetos{
+   box-shadow: none;
+}
+
+.ui-paginator-top {
+    display: none;
+}
+
+.contenedor-principal{
+    margin: 10px 10px;
+    background-color: #fff;
+}
+
+div .row.filtro{
+    margin: 10px 15px;
+}
+
+
+a.ui-menuitem-link.usuarioLogeado {
+    padding: 14px 2px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.usuarioLogeado:hover{
+    background: none !important;
+    color: #222 !important;
+    border-radius: 0px;
+    cursor: default;
+}
+
+.ui-state-highlight, .ui-widget-content .ui-state-highlight {
+    background-color: #a0a0a0 !important;
+    background-image: none;
+}
+
+.codigoFuente{
+	width: 100%;
+	height: 450px;
+	overflow-y: auto;
+}

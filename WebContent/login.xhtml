@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>Leacy - Control de Stock</title>
+	<h:outputStylesheet library="css" name="bootstrap.css" />
+	<h:outputStylesheet library="css" name="font-awesome.css" />
+	<h:outputStylesheet library="css" name="keyrune.css" />
+	
+</h:head>
+<h:body>
+
+	<f:facet name="general">
+		<h:outputStylesheet library="css" name="estilos.css"/>
+	</f:facet>
+		
+
+	<div class="container">
+		<div>
+			<h:form id="loginForm" class="form-signin">
+				<div class="contenedor-login">
+					<h2 class="form-signin-heading">Leacy</h2>
+					<h2 class="form-signin-heading">Visualizador de Stock</h2>
+				
+					<div class="form-group">
+					   <p:inputText id="username"
+	          					    value="#{loginBean.username}"
+	         		 				 	styleClass="form-control"
+	         		 				 	placeholder="Usuario" />
+					 </div>
+					 
+				 	<div class="form-group">
+		          		<p:password  value="#{loginBean.password}" 
+		          					placeholder="Contraseña" 
+		          					styleClass="form-control" /> 
+		          	</div>
+		          	
+		          	<div class="row">
+			            <div class="col-xs-12 text-right">
+			            	<p:commandButton id="btnLogin"
+		              				 value="Login"
+		              				 update=":growl" 
+		              				 action="#{loginBean.login}"
+		              				 onclick="PF('bui').block()" 
+		                               oncomplete="PF('bui').unblock()" 
+		                               styleClass="btn btn-success"/>
+		              			
+			            </div>
+		        	</div>
+		          	
+				</div>
+				
+				<pe:blockUI widgetVar="bui" css="{top: '45%', left: '40%', cursor: 'wait'}">
+					<h:graphicImage
+						library="images"
+						name="ajax-loader1.gif"
+						style="margin-right: 12px; vertical-align: middle;" />
+					<h:outputText
+						value="Iniciando sesion - espere por favor..."
+						style="white-space: nowrap;" />
+				</pe:blockUI>
+
+				
+			</h:form>
+		</div>
+	</div>
+	
+	<ui:include src="/layout/growls.xhtml" />
+	
+	<h:outputScript library="js" name="bootstrap.min.js" />
+</h:body>
+</html>

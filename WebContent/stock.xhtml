@@ -1,0 +1,237 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:f="http://java.sun.com/jsf/core">
+<ui:composition template="/layout/commonLayout.xhtml">
+	<ui:define name="title">Stock</ui:define>
+	<ui:define name="content">
+		<h:form id="mainBody" styleClass="table">
+
+			<p:dialog widgetVar="dialogoArchivo" id="dialogArchivo" modal="true"
+				header="Descargar Stock" dynamic="true"
+				resizable="false">
+				
+				<div class="modal-footer">
+					<p:commandButton id="descargar" value="Descargar"
+						onclick="PF('dialogoArchivo').hide()" ajax="false">
+						<p:fileDownload value="#{stockBean.file}" />
+					</p:commandButton>
+					<p:commandButton id="cerrarArchivo" value="Cancelar" styleClass="btn btn-danger"
+						onclick="PF('dialogoArchivo').hide()" />
+				</div>
+			</p:dialog>
+
+			<p:dialog widgetVar="dialogoStock" id="dialogStock"
+				header="#{dialogoStockBean.tituloDialog}" modal="true"
+				resizable="false" width="900">
+				<p:ajax event="close" update="dialogStock" />
+
+				<div class="row filtro">
+					<div class="col">
+						<div style="float: left;">
+							<p:outputLabel styleClass="labelFiltro">Rareza:</p:outputLabel>
+						</div>
+						<div style="float: left;">
+							<p:selectOneMenu id="col2"
+								value="#{dialogoStockBean.filtroRareza}">
+								<f:selectItem itemLabel="Todos" itemValue="" />
+								<f:selectItems value="#{dialogoStockBean.rarezas}" />
+								<p:ajax event="valueChange" update="tablaStockEdicion" />
+							</p:selectOneMenu>
+						</div>
+						<div style="float: left;">
+							<h:panelGrid columns="6" style="margin-bottom:10px"
+								cellpadding="5">
+								<h:outputText styleClass="labelCheckbox" value="NM: " />
+								<p:selectBooleanCheckbox value="#{dialogoStockBean.estado_nm}">
+									<p:ajax update="tablaStockEdicion" />
+								</p:selectBooleanCheckbox>
+
+								<h:outputText styleClass="labelCheckbox" value="SP: " />
+								<p:selectBooleanCheckbox value="#{dialogoStockBean.estado_sp}">
+									<p:ajax update="tablaStockEdicion" />
+								</p:selectBooleanCheckbox>
+								
+								<h:outputText styleClass="labelCheckbox" value="MP: " />
+								<p:selectBooleanCheckbox value="#{dialogoStockBean.estado_mp}">
+									<p:ajax update="tablaStockEdicion" />
+								</p:selectBooleanCheckbox>
+								
+								<h:outputText styleClass="labelCheckbox" value="Ingles: " />
+								<p:selectBooleanCheckbox value="#{dialogoStockBean.idioma_ingles}">
+									<p:ajax update="tablaStockEdicion" />
+								</p:selectBooleanCheckbox>
+
+								<h:outputText styleClass="labelCheckbox" value="Español: " />
+								<p:selectBooleanCheckbox value="#{dialogoStockBean.idioma_espaniol}">
+									<p:ajax update="tablaStockEdicion" />
+								</p:selectBooleanCheckbox>
+								
+								<h:outputText styleClass="labelCheckbox" value="Otros: " />
+								<p:selectBooleanCheckbox value="#{dialogoStockBean.idioma_otro}">
+									<p:ajax update="tablaStockEdicion" />
+								</p:selectBooleanCheckbox>
+							</h:panelGrid>
+						</div>
+						<div style="float: left;">
+							<h:panelGrid columns="2" style="margin-bottom:10px"
+								cellpadding="5">
+								<h:outputText styleClass="labelCheckbox" value="Mostrar cartas sin stock: " />
+								<p:selectBooleanCheckbox value="#{dialogoStockBean.mostrar_sin_stock}">
+									<p:ajax update="tablaStockEdicion" />
+								</p:selectBooleanCheckbox>
+							</h:panelGrid>
+						</div>
+					</div>
+				</div>
+
+				<div class="container-fluid contenedor-principal">
+					<div class="row">
+						<div class="col-xs-12" style="padding: 5px 5px;">
+							<p:dataTable id="tablaStockEdicion" value="#{dialogoStockBean.cartasFiltradas}"
+								var="car" selectionMode="single"
+								emptyMessage="Error al cargar los registros"
+								rowKey="#{car.idStock}" rows="25" paginator="true">
+								
+								<p:column headerText="#" 
+									styleClass="col-md-1">
+									<h:outputLabel styleClass="labelTabla" value="#{car.numero}" />
+								</p:column>
+								<p:column headerText="Edicion" 
+									styleClass="col-md-8">
+									<div>
+										<div style="float: left;">
+											<h:outputLabel
+												styleClass="#{car.rareza.estilo} columna-symbol"
+												value="#{car.symbol}" />
+										</div>
+										<div>
+											<h:outputLink id="content" target="_blank"
+											value="#{car.urlStarcityGames}">
+												<h:outputLabel styleClass="labelTabla"
+													value="#{car.edicion.nombreEdicion}" />
+											</h:outputLink>
+											<p:tooltip id="toolTipContent" for="content" position="right">
+												<p:graphicImage height="300px" width="210px"
+													url="#{car.urlCarta}" />
+											</p:tooltip>
+										</div>
+									</div>
+								</p:column>
+								<p:column headerText="Coste" 
+									styleClass="col-md-3">
+									<h:outputLabel styleClass="labelTabla" value="#{car.coste}" />
+								</p:column>
+								<p:column headerText="Color" 
+									styleClass="col-md-2">
+									<h:outputLabel styleClass="labelTabla"
+										value="#{car.color.descripcion}" />
+								</p:column>
+								<p:column headerText="Idioma" 
+									styleClass="col-md-2">
+									<h:outputLabel styleClass="labelTabla"
+										value="#{car.idioma.descripcion}" />
+								</p:column>
+								<p:column headerText="Estado" 
+									styleClass="col-md-2">
+									<h:outputLabel styleClass="labelTabla"
+										value="#{car.estado.descripcion}" />
+								</p:column>
+								<p:column headerText="Estandar" 
+									styleClass="col-md-2">
+									<h:outputLabel styleClass="labelTabla"
+										value="#{car.stockEstandar}" />
+								</p:column>
+								<p:column headerText="Foil" 
+									styleClass="col-md-2">
+									<h:outputLabel styleClass="labelTabla" value="#{car.stockFoil}" />
+								</p:column>
+							</p:dataTable>
+
+
+
+						</div>
+					</div>
+				</div>
+
+
+			</p:dialog>
+
+			<div class="container-fluid contenedor-principal">
+			
+				<div class="row filtro">
+					<div style ="float: left;">
+						<p:inputText value="#{stockBean.filtroNombre}"
+							placeholder="Buscar..." autocomplete="off">
+							<p:ajax event="keyup" update="tablaStock" />
+						</p:inputText>
+					</div>
+					<div style="float: left;">
+						<h:panelGrid columns="2" style="margin-bottom:10px"
+							cellpadding="5">
+							<h:outputText styleClass="labelCheckbox" style="vertical-align: -webkit-baseline-middle;" value="Mostrar cartas sin stock: " />
+							<p:selectBooleanCheckbox style="vertical-align: -webkit-baseline-middle;" value="#{stockBean.cargarVacios}">
+								<p:ajax update="tablaStock" />
+							</p:selectBooleanCheckbox>
+						</h:panelGrid>
+					</div>
+					<div style ="float: right;">
+						<p:commandButton 
+						value="Descargar Stock"
+						id="btnEmpaquetar"
+						title="Empaquetar"
+						action="#{stockBean.generarExcel()}"
+						/>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12">
+						<p:dataTable id="tablaStock" value="#{stockBean.cartasFiltradas}"
+							selectionMode="single" selection="#{stockBean.cartaSelected}"
+							emptyMessage="No se encontraron cartas que coincidan con el criterio de busqueda"
+							rowKey="#{car.nombre}" var="car" rows="25" paginator="true">
+							
+							<p:ajax event="rowSelect"
+								listener="#{stockBean.verCartasStock}"
+								update=":mainBody:dialogStock" global="false" />
+							
+							
+							<p:column headerText="Nombre [Ingles]" styleClass="col-md-7">
+								<h:outputText value="#{car.nombre}" />
+							</p:column>
+							<p:column headerText="Nombre [Español]" styleClass="col-md-7">
+								<h:outputText value="#{car.nombreEspaniol}" />
+							</p:column>
+							<p:column headerText="Costo" styleClass="col-md-2">
+								<h:outputText value="#{car.costo}" />
+							</p:column>
+							<p:column headerText="Tipo" styleClass="col-md-7">
+								<h:outputText value="#{car.tipo}" />
+							</p:column>
+							<p:column headerText="Color" 
+								styleClass="col-md-1">
+								<h:outputLabel styleClass="labelTabla"
+									value="#{car.color.descripcion}" />
+							</p:column>
+							<p:column headerText="Estandar" 
+								styleClass="col-md-1">
+								<h:outputLabel styleClass="labelTabla"
+									value="#{car.stockEstandar}" />
+							</p:column>
+							<p:column headerText="Foil" 
+								styleClass="col-md-1">
+								<h:outputLabel styleClass="labelTabla" value="#{car.stockFoil}" />
+							</p:column>
+						</p:dataTable>
+					</div>
+				</div>
+			</div>
+
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>
