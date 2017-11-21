@@ -37,7 +37,7 @@ public class Usuario implements Serializable {
 			// TODO validar usuario
 			return new Usuario();
 		} catch (Exception e) {
-			throw new ExcepcionControlada("Ocurrio un error al validar la contraseña", e);
+			throw new ExcepcionControlada("Ocurrio un error al validar la contrasea", e);
 		}
 
 	}

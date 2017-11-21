@@ -33,7 +33,7 @@ public class LoginBean implements Serializable{
 			throw new ExcepcionControlada("Debe ingresar un usuario", null);
 		}
 		if(password==null || password.isEmpty() || password.trim().contentEquals("")){
-			throw new ExcepcionControlada("Debe ingresar una contraseña", null);
+			throw new ExcepcionControlada("Debe ingresar una contrasea", null);
 		}
 		
     	//TODO ejecutar la validacion de usuario 

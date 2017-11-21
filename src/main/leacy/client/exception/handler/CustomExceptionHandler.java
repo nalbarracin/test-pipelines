@@ -43,7 +43,7 @@ public class CustomExceptionHandler extends ExceptionHandlerWrapper {
 				ExternalContext ec = fc.getExternalContext();
 				try {
 					ec.redirect(ec.getRequestContextPath() + "/login.xhtml");
-					Mensaje.addMessageError("Sesion Expirada", "La sesión ha expirado. Por favor ingrese nuevamente.");
+					Mensaje.addMessageError("Sesion Expirada", "La sesin ha expirado. Por favor ingrese nuevamente.");
 				} catch (IOException e) {
 					Mensaje.addMessageError("Error: ", e.getMessage());	
 				}

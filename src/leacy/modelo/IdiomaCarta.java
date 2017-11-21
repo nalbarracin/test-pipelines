@@ -5,7 +5,7 @@ import java.util.List;
 
 public enum IdiomaCarta {
 
-	Espaniol	("es", "en", "Español"),
+	Espaniol	("es", "en", "EspaÃ±ol"),
 	Ingles		("en", "en", "Ingles"),
 	Otros		("ot", "en", "Otros");
 	
