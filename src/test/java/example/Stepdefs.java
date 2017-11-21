@@ -1,14 +1,14 @@
 package test.java.example;
 
-import static org.hamcrest.Matchers.*;
-import static org.junit.Assert.*;
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import example.values.CannedWalrusFood;
-import example.values.Walrus;
-import example.values.WalrusFood;
+import test.example.values.CannedWalrusFood;
+import test.example.values.Walrus;
+import test.example.values.WalrusFood;
 
 public class Stepdefs {
 	Walrus walrus;
