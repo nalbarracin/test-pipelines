@@ -22,7 +22,7 @@ pipeline {
                  
             }
             steps {
-            	sh 'sshpass -p $SAUCE_ACCESS_PSW scp target/*.war $SAUCE_ACCESS_USR@localhost:/opt/tomcat-latest/webapps'
+            	sh 'pscp -pw $SAUCE_ACCESS_PSW target/*.war $SAUCE_ACCESS_USR@localhost:/opt/tomcat-latest/webapps'
             }
         }
         stage('Deploy') {
