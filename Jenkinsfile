@@ -18,11 +18,13 @@ pipeline {
         }
         stage('Example') {
             environment { 
-                AN_ACCESS_KEY = credentials('09059df9-f6a7-4ac2-96ad-9c5aa41ec8bb')
+                SAUCE_ACCESS = credentials('09059df9-f6a7-4ac2-96ad-9c5aa41ec8bb')
                  
             }
             steps {
-                sh 'sshpass -p $AN_ACCESS_KEY_PSW scp target/*.war nalbarracin@localhost:/opt/tomcat-latest/webapps'
+            	sh 'echo $SAUCE_ACCESS_PSW'
+            	sh 'echo SAUCE_ACCESS_PSW'
+                sh 'sshpass -p SAUCE_ACCESS_PSW scp target/*.war SAUCE_ACCESS_USR@localhost:/opt/tomcat-latest/webapps'
             }
         }
         stage('Deploy') {
