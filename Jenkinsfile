@@ -21,7 +21,7 @@ pipeline {
                 AN_ACCESS_KEY = credentials('nalbarracin') 
             }
             steps {
-                sh 'echo $AN_ACCESS_KEY'
+                echo $AN_ACCESS_KEY
             }
         }
         stage('Deploy') {
