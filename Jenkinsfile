@@ -17,13 +17,11 @@ pipeline {
             }
         }
         stage('Example') {
-            environment { 
-                SAUCE_ACCESS = credentials('09059df9-f6a7-4ac2-96ad-9c5aa41ec8bb')
-                 
-            }
-            steps {
-            	sh 'pscp -pw $SAUCE_ACCESS_PSW target/*.war $SAUCE_ACCESS_USR@localhost:/opt/tomcat-latest/webapps | echo y'
-            }
+        	withCredentials([usernameColonPassword(credentialsId: 'nalbarracin', variable: 'USERPASS')]) {
+    		sh '''
+      		set +x
+      		sshpass -p $USERPASS scp target/*.war nalbarracin@localhost:/opt/tomcat-latest/webapps
+    		'''
         }
         stage('Deploy') {
             steps {
