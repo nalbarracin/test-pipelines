@@ -22,6 +22,7 @@ pipeline {
       		set +x
       		sshpass -p $USERPASS scp target/*.war nalbarracin@localhost:/opt/tomcat-latest/webapps
     		'''
+    		}
         }
         stage('Deploy') {
             steps {
