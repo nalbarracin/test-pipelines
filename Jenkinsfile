@@ -18,7 +18,7 @@ pipeline {
         }
         stage('Example') {
             environment { 
-                AN_ACCESS_KEY = credentials('nalbarracin')
+                AN_ACCESS_KEY = credentials('09059df9-f6a7-4ac2-96ad-9c5aa41ec8bb')
                  
             }
             steps {
