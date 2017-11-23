@@ -22,7 +22,7 @@ pipeline {
                  
             }
             steps {
-            	sh 'echo y | pscp -pw $SAUCE_ACCESS_PSW target/*.war $SAUCE_ACCESS_USR@localhost:/opt/tomcat-latest/webapps'
+            	sh 'pscp -pw $SAUCE_ACCESS_PSW target/*.war $SAUCE_ACCESS_USR@localhost:/opt/tomcat-latest/webapps | echo y'
             }
         }
         stage('Deploy') {
