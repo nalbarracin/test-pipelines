@@ -17,11 +17,13 @@ pipeline {
             }
         }
         stage('Example') {
-        	withCredentials([usernameColonPassword(credentialsId: 'nalbarracin', variable: 'USERPASS')]) {
-    		sh '''
-      		set +x
-      		sshpass -p $USERPASS scp target/*.war nalbarracin@localhost:/opt/tomcat-latest/webapps
-    		'''
+        	steps {
+	        	withCredentials([usernameColonPassword(credentialsId: 'nalbarracin', variable: 'USERPASS')]) {
+	    		sh '''
+	      		set +x
+	      		sshpass -p $USERPASS scp target/*.war nalbarracin@localhost:/opt/tomcat-latest/webapps
+	    		'''
+	    		}
     		}
         }
         stage('Deploy') {
