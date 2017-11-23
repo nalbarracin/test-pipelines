@@ -1,7 +1,4 @@
-package test.example;
-
-import test.example.values.CannedWalrusFood;
-import test.example.values.WalrusFood;
+package test.model;
 
 public class OpensCan {
 

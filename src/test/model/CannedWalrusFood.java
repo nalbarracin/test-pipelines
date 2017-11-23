@@ -1,4 +1,4 @@
-package test.example.values;
+package test.model;
 
 public class CannedWalrusFood {
 

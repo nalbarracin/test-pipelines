@@ -1,4 +1,4 @@
-package test.example.values;
+package test.model;
 
 import java.util.HashSet;
 import java.util.Set;
