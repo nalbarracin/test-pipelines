@@ -3,15 +3,6 @@ pipeline {
     agent any
     
     stages {
-        stage('Clean and Clone'){
-            steps 
-            {
-                script{
-                    cleanWs()
-                    sh 'git clone https://github.com/nalbarracin/test-pipelines/ .'
-                }
-        	}
-        }
         stage('Build') {
             steps {
                 echo 'Build..'
@@ -55,12 +46,6 @@ pipeline {
                     }
         	    }
         	}
-        }
-    }
-    post{
-        always{
-            echo "Workspace Clean"
-            cleanWs()
         }
     }
 }
