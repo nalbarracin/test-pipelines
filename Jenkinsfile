@@ -18,8 +18,7 @@ pipeline {
         }        
         stage('Deploy') {
             steps {
-                echo 'Deploying....'
-                currentBuild.result = 'SUCCESS'                    
+                echo 'Deploying....'                                  
             }
         }
     }
