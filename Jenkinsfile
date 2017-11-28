@@ -27,7 +27,7 @@ pipeline {
         stage('Deploy Local') {
             environment { 
                 USERPASS = credentials('tomcat_deployer') 
-                SERVER = 'localhost'
+                SERVER = 'localhostsdrtsdrtssdr'
             }
         	steps{
         	    echo 'Deployando localmente....'
