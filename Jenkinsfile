@@ -11,7 +11,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo 'Testing..'
+                echo 'Testing..' 
                 sh 'mvn test'
             }
         }
@@ -26,7 +26,7 @@ pipeline {
                     if (currentBuild.result == null || currentBuild.result == 'SUCCESS') {
                         sh 'sshpass -p $USERPASS_PSW scp -o StrictHostKeyChecking=no target/*.war $USERPASS_USR@$SERVER:/opt/tomcat-latest/webapps'
                     }else {
-                        currentBuild.result = "FAILURE"
+                        currentBuild.result = "FAILURE" 
                     }
         	    }
         	}
