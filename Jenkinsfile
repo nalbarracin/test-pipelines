@@ -63,7 +63,7 @@ pipeline {
     }
     post{
         always{
-            echo "Workspace Clean"
+            echo "Workspace Clean."
             cleanWs()
         }
     }
