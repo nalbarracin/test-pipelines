@@ -36,7 +36,7 @@ pipeline {
                 SERVER = '192.168.8.5'
             }
         	steps{
-        	    echo 'Deployando en Apolo....'
+        	    echo 'Deployando en Apolo...'
         	    script {
                     if (currentBuild.result == null || currentBuild.result == 'SUCCESS') {
                         sh 'sshpass -p $USERPASS_PSW scp -o StrictHostKeyChecking=no target/*.war $USERPASS_USR@$SERVER:/opt/tomcat-latest/webapps'
