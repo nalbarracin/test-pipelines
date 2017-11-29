@@ -62,5 +62,17 @@ pipeline {
             echo "Workspace Clean"
             cleanWs()
         }
+        unstable{
+            echo "Build Unstable"
+        }        
+        success{
+            echo "Build Success"
+        }        
+        failure{
+            echo "Build Failues"
+        }        
+        changed{
+            echo "Build Changed"
+        }
     }
 }
