@@ -7,7 +7,7 @@ try{
         }
     }
 
-    stage('Clean') {
+    stage('Clean and Package') {
         node {
             echo 'Building..'
             sh 'mvn clean package'
