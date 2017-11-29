@@ -14,13 +14,13 @@ pipeline {
         }
         stage('Build') {
             steps {
-                echo 'Building..'
+                echo 'Build..'
                 sh 'mvn clean package'
             }
         }
         stage('Test') {
             steps {
-                echo 'Testing..'
+                echo 'Testing..' 
                 sh 'mvn test'
             }
         }
