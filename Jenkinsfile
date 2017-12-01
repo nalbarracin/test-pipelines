@@ -22,7 +22,9 @@ pipeline {
             steps {
                 echo 'Testing..' 
                 sh 'mvn test'
-                currentBuild.result = "FAILURE"
+                script {
+	                currentBuild.result = "FAILURE"
+	            }
             }
         }
         stage('Package') {
