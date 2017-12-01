@@ -39,7 +39,7 @@ pipeline {
         	    echo 'Deployando localmente..'
         	    script {
                     if (currentBuild.result == null || currentBuild.result == 'SUCCESS') {
-                        sh 'sshpass klñdfgñlskdjfg -p $USERPASS_PSW scp -o StrictHostKeyChecking=no target/*.war $USERPASS_USR@$SERVER:/opt/tomcat-latest/webapps'
+                        sh 'sshpass -p $USERPASS_PSW scp -o StrictHostKeyChecking=no target/*.war $USERPASS_USR@$SERVER:/opt/tomcat-latest/webapps'
                     }else {
                         currentBuild.result = "FAILURE"
                     }
