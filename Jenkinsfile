@@ -12,10 +12,10 @@ pipeline {
                 }
         	}
         }
-        stage('Build') {
+        stage('Compile') {
             steps {
-                echo 'Build..'
-                sh 'mvn clean package'
+                echo 'Compiling..'
+                sh 'mvn clean compile'
             }
         }
         stage('Test') {
@@ -24,13 +24,19 @@ pipeline {
                 sh 'mvn test'
             }
         }
+        stage('Package') {
+            steps {
+                echo 'Packaging..' 
+                sh 'mvn package'
+            }
+        }
         stage('Deploy Local') {
             environment { 
                 USERPASS = credentials('tomcat_deployer') 
                 SERVER = 'localhost'
             }
         	steps{
-        	    echo 'Deployando localmente....'
+        	    echo 'Deployando localmente..'
         	    script {
                     if (currentBuild.result == null || currentBuild.result == 'SUCCESS') {
                         sh 'sshpass -p $USERPASS_PSW scp -o StrictHostKeyChecking=no target/*.war $USERPASS_USR@$SERVER:/opt/tomcat-latest/webapps'
@@ -46,7 +52,7 @@ pipeline {
                 SERVER = '192.168.8.5'
             }
         	steps{
-        	    echo 'Deployando localmente....'
+        	    echo 'Deployando en Apolo..'
         	    script {
                     if (currentBuild.result == null || currentBuild.result == 'SUCCESS') {
                         sh 'sshpass -p $USERPASS_PSW scp -o StrictHostKeyChecking=no target/*.war $USERPASS_USR@$SERVER:/opt/tomcat-latest/webapps'
